@@ -22,13 +22,22 @@ https://www.youtube.com/watch?v=04L_njW_MjM
 
 ## Use
 
+**Import**
+
+``lua
+local embeddableScrollview = require "plugin.embeddablescrollview"
+``
+
+**Extra Options**
+
 With an embedded scrollview you get a few extra parameters added to the built-in scrollview:
 
-displayObjectToGiveTouchFocusFromHorizontalScroll
-displayObjectToGiveTouchFocusFromVerticalScroll
-displayObjectToGiveTouchFocusFromFunctionCall
+* displayObjectToGiveTouchFocusFromHorizontalScroll
+* displayObjectToGiveTouchFocusFromVerticalScroll
+* displayObjectToGiveTouchFocusFromFunctionCall
 
-Examples:
+
+**Scrollview, but gives aways horizontal scrolls**
 
 ```lua
 myEmbeddedScrollView = embeddableScrollview.create({
@@ -38,6 +47,8 @@ myEmbeddedScrollView = embeddableScrollview.create({
 })
 ```
 
+**Scrollview, but gives aways vertical scrolls**
+
 ```lua
 myEmbeddedScrollView = embeddableScrollview.create({
     ...
@@ -46,15 +57,15 @@ myEmbeddedScrollView = embeddableScrollview.create({
 })
 ```
 
+**Scrollview, but can manually give away**
+
 ```lua
 myEmbeddedScrollView = embeddableScrollview.create({
     ...
     displayObjectToGiveTouchFocusFromFunctionCall = parentScrollView,
     ...
 })
-```
-
-```lua
+-- somewhere later in code
 myEmbeddedScrollView:giveFocusAway() -- gives it to whatever was set in as displayObjectToGiveTouchFocusFromFunctionCall
 ```
 
